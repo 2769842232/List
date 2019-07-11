@@ -40,6 +40,30 @@ export default {
   // 挂载
   mounted () {
     this.loadDataById()
+  },
+  methods: {
+    loadDataById () {
+      this.axios
+        .get(`http://localhost:3000/users/${this.id}`)
+        .then((res) => {
+          const { status, data } = res
+          if (status === 200) {
+            // 存储数据到formData
+            this.formData = data
+          }
+        })
+    }
+    // 修改数据
+    // updated () {
+    //   this.axios
+    //     .put(`ying/${this.id}`, this.formData)
+    //     .then((res) => {
+    //       const { status } = res
+    //       if (status === 200) {
+    //         this.$router.push({ name: 'ying' })
+    //       }
+    //     })
+    // }
   }
 }
 </script>

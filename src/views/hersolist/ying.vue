@@ -20,7 +20,7 @@
             <td>
               <a href="edit.html">编辑</a>
               &nbsp;&nbsp;
-              <a href="javascript:window.confirm('Are you sure?')">删除</a>
+              <a href="javascript:" @click="del(value.index)">删除</a>
             </td>
           </tr>
         </tbody>
@@ -47,6 +47,20 @@ export default {
           const { status, data } = res
           if (status === 200) {
             this.list = data
+          }
+        })
+    },
+    // 删除
+    del (index) {
+      if (!confirm('确定要删除吗?')) {
+        return false
+      }
+      this.axios
+        .delete('http://localhost:3000/users')
+        .then((res) => {
+          const { status } = res
+          if (status === 200) {
+            this.loadData()
           }
         })
     }

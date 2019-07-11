@@ -21,7 +21,7 @@
             <td>
               <!-- <a href="edit.html">编辑</a>
               -->
-              <router-link to='/hersolist/xiugai'>编辑</router-link>&nbsp;&nbsp;
+              <router-link :to="'/hersolist/xiugai/'+value.id">编辑</router-link>&nbsp;&nbsp;
               <a href="javascript:" @click="del(value.id)">删除</a>
             </td>
           </tr>

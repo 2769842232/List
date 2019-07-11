@@ -20,7 +20,7 @@
         </select>
       </div>
       <!-- prevent 阻止默认行为的执行 -->
-      <button @click.prevent="update" class="btn btn-success">提交</button>
+      <button @click.prevent="Gai" class="btn btn-success">提交</button>
     </form>
   </div>
 </template>
@@ -52,18 +52,20 @@ export default {
             this.formData = data
           }
         })
-    }
+    },
     // 修改数据
-    // updated () {
-    //   this.axios
-    //     .put(`ying/${this.id}`, this.formData)
-    //     .then((res) => {
-    //       const { status } = res
-    //       if (status === 200) {
-    //         this.$router.push({ name: 'ying' })
-    //       }
-    //     })
-    // }
+    Gai () {
+      this.axios
+        .put(`http://localhost:3000/users/${this.id}`, this.formData)
+        .then((res) => {
+          const { status } = res
+          if (status === 200) {
+            this.$router.push({ name: 'ying' })
+          } else {
+            alert('修改失败')
+          }
+        })
+    }
   }
 }
 </script>

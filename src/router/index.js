@@ -19,7 +19,7 @@ const router = new VueRouter({
     { name: 'wuqi', path: '/wu', component: wuqi },
     { name: 'zhang', path: '/zhang', component: zhang },
     { name: 'Tianadd', path: '/hersolist/tianadd', component: Tianadd },
-    { name: 'Xiugai', path: '/hersolist/xiugai', component: Xiugai, props: true }
+    { name: 'Xiugai', path: '/hersolist/xiugai/:id', component: Xiugai, props: true }
   ]
 })
 export default router
